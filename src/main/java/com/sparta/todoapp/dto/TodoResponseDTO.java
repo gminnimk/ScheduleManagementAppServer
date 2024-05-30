@@ -7,7 +7,7 @@ package com.sparta.todoapp.dto;
 
 import java.time.LocalDateTime;
 
-import com.sparta.todoapp.repository.Todo;
+import com.sparta.todoapp.entity.Todo;
 import lombok.Getter;
 import lombok.Setter;
 
@@ -31,6 +31,6 @@ public class TodoResponseDTO {
 		this.title = todo.getTitle(); // 할 일의 제목 설정
 		this.content = todo.getContent(); // 할 일의 내용 설정
 		this.userName = todo.getUserName(); // 사용자의 이름 설정
-		this.createdAt = todo.getCreatedAt(); // 할 일이 생성된 날짜 및 시간 설정
+		this.createdAt = todo.getCreatedAt().toLocalDateTime(); // 할 일이 생성된 날짜 및 시간 설정
 	}
 }

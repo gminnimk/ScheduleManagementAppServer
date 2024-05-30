@@ -11,6 +11,7 @@ import java.util.stream.Collectors;
 
 import com.sparta.todoapp.dto.TodoRequestDTO;
 import com.sparta.todoapp.dto.TodoResponseDTO;
+import com.sparta.todoapp.entity.Todo;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.DeleteMapping;
@@ -23,7 +24,6 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import com.sparta.todoapp.CommonResponse;
-import com.sparta.todoapp.repository.Todo;
 import com.sparta.todoapp.service.TodoService;
 import lombok.AllArgsConstructor;
 

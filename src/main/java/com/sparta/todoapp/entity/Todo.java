@@ -1,10 +1,7 @@
-package com.sparta.todoapp.model;
+package com.sparta.todoapp.entity;
 
-
-/*
-댓글을 관리 & 연관 관계를 설정
- */
 import jakarta.persistence.*;
+import lombok.Builder;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 import lombok.Setter;
@@ -36,18 +33,27 @@ public class Todo {
     @Column(nullable = false, updatable = false)
     private Timestamp createdAt;
 
+    @OneToMany(mappedBy = "todo", cascade = CascadeType.ALL, orphanRemoval = true)
+    private List<Comment> comments;
 
-    // @OneToMany 어노테이션은 Todo 클래스와 Comment 클래스가 일대다 관계임을 표시!
-    // => 하나의 일정에 여러 개의 댓글이 속할 수 있음.
-    @OneToMany(mappedBy = "todo", cascade = CascadeType.ALL)
-    private List<Comment> comments; // 각 일정에 속하는 댓글을 관리.
-
-    // 생성자
+    @Builder
     public Todo(String title, String content, String userName, String password) {
         this.title = title;
         this.content = content;
         this.userName = userName;
         this.password = password;
         this.createdAt = new Timestamp(System.currentTimeMillis());
+    }
+
+    public void setTitle(String title) {
+        this.title = title;
+    }
+
+    public void setContent(String content) {
+        this.content = content;
+    }
+
+    public void setUserName(String userName) {
+        this.userName = userName;
     }
 }
