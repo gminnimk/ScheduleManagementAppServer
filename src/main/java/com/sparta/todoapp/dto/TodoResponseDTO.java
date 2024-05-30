@@ -15,22 +15,22 @@ import lombok.Setter;
 @Setter // Lombok 어노테이션으로, 모든 필드에 대한 setter 메서드를 자동으로 생성
 public class TodoResponseDTO {
 
-	private Long todoId; // 할 일의 ID
+    private Long todoId; // 할 일의 ID
 
-	private String title; // 할 일의 제목
+    private String title; // 할 일의 제목
 
-	private String content; // 할 일의 내용
+    private String content; // 할 일의 내용
 
-	private String userName; // 사용자의 이름
+    private String userName; // 사용자의 이름
 
-	private LocalDateTime createdAt; // 할 일이 생성된 날짜 및 시간
+    private LocalDateTime createdAt; // 할 일이 생성된 날짜 및 시간
 
-	// Todo 엔티티 객체를 받아서 TodoResponseDTO 객체를 생성하는 생성자
-	public TodoResponseDTO(Todo todo) {
-		this.todoId = todo.getTodoId(); // 할 일의 ID 설정
-		this.title = todo.getTitle(); // 할 일의 제목 설정
-		this.content = todo.getContent(); // 할 일의 내용 설정
-		this.userName = todo.getUserName(); // 사용자의 이름 설정
-		this.createdAt = todo.getCreatedAt().toLocalDateTime(); // 할 일이 생성된 날짜 및 시간 설정
-	}
+    // Todo 엔티티 객체를 받아서 TodoResponseDTO 객체를 생성하는 생성자
+    public TodoResponseDTO(Todo todo) {
+        this.todoId = todo.getTodoId(); // 할 일의 ID 설정
+        this.title = todo.getTitle(); // 할 일의 제목 설정
+        this.content = todo.getContent(); // 할 일의 내용 설정
+        this.userName = todo.getUserName(); // 사용자의 이름 설정
+        this.createdAt = todo.getCreatedAt().toLocalDateTime(); // 할 일이 생성된 날짜 및 시간 설정
+    }
 }
